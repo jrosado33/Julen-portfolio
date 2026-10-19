@@ -1,222 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julen Rosado | IT Systems & Networks Technician</title>
+    <title>Julen Rosado | Técnico en Sistemas y Redes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #111827;
-            --accent-primary: #38bdf8;
-            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
-            --card-border: rgba(255, 255, 255, 0.08);
-            --shadow-glow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --bg-body: #0a0c10;
+            --bg-surface: #12151e;
+            --bg-card: #181c28;
+            --border-subtle: #262c3e;
+            --border-hover: #3b82f6;
+            --text-title: #f8fafc;
+            --text-body: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #2563eb;
+            --accent-light: #60a5fa;
+            --accent-bg: rgba(37, 99, 235, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --transition: all 0.25s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: var(--text-body); line-height: 1.6; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* Navigation */
-        .navbar {
+        header {
             position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000; padding: 1.2rem 0;
+            background: rgba(10, 12, 16, 0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle); z-index: 100;
         }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo {
-            font-size: 1.4rem; font-weight: 800;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
-        }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a {
-            color: var(--text-muted); text-decoration: none;
-            font-weight: 500; font-size: 0.95rem; transition: var(--transition);
-        }
-        .nav-links a:hover { color: var(--accent-primary); }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .brand { font-weight: 700; font-size: 1.15rem; color: var(--text-title); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; }
+        .brand-dot { width: 8px; height: 8px; background-color: var(--accent-light); border-radius: 50%; }
+        .nav-menu { display: flex; gap: 2rem; list-style: none; }
+        .nav-menu a { color: var(--text-body); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: var(--transition); }
+        .nav-menu a:hover { color: var(--text-title); }
 
-        /* Hero */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center; padding-top: 80px;
-            background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
-        }
-        .hero-content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
-        .hero-badge {
+        .hero-section { padding: 160px 0 90px; }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .status-tag {
             display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.4rem 1rem; background: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 50px;
-            color: var(--accent-primary); font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem;
+            padding: 0.35rem 0.85rem; background: var(--bg-surface);
+            border: 1px solid var(--border-subtle); border-radius: 100px;
+            font-size: 0.82rem; font-weight: 600; color: var(--accent-light); margin-bottom: 1.5rem;
         }
-        .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero-title span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; }
+        .status-dot { width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; }
+        .hero-title { font-size: 3.2rem; font-weight: 800; color: var(--text-title); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+        .hero-desc { font-size: 1.1rem; color: var(--text-body); margin-bottom: 2rem; max-width: 580px; }
 
-        .btn {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.8rem 1.8rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: var(--transition);
+        .btn-main {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.75rem 1.6rem; background: var(--accent); color: #fff;
+            border-radius: var(--radius-sm); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: var(--transition);
         }
-        .btn-primary { background: var(--accent-gradient); color: #0f172a; box-shadow: var(--shadow-glow); }
-        .btn-primary:hover { transform: translateY(-2px); }
-        .btn-secondary { background: var(--bg-secondary); color: var(--text-main); border: 1px solid var(--border-color); }
-        .btn-secondary:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+        .btn-main:hover { background: #1d4ed8; transform: translateY(-1px); }
 
-        .hero-avatar {
-            width: 280px; height: 280px; border-radius: 24px;
-            object-fit: cover; border: 2px solid var(--card-border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        .photo-card {
+            background: var(--bg-surface); border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg); padding: 0.75rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
+        .photo-card img { width: 100%; height: 380px; object-fit: cover; border-radius: var(--radius-md); display: block; }
 
-        /* General Sections */
-        section { padding: 6rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-tag { color: var(--accent-primary); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-        .section-title { font-size: 2.5rem; font-weight: 800; }
+        section { padding: 80px 0; border-top: 1px solid var(--border-subtle); }
+        .section-header { margin-bottom: 3rem; }
+        .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; }
+        .section-heading { font-size: 2rem; font-weight: 700; color: var(--text-title); letter-spacing: -0.01em; }
 
-        /* Grid Layouts */
-        .about-grid, .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        .highlight-card, .skill-category, .timeline-content, .project-card, .cert-card {
-            background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.8rem;
-        }
-
-        .skills-container, .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.9rem; }
-        .tag:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
-
-        /* Form */
-        .form-control {
-            width: 100%; background: var(--bg-primary); border: 1px solid var(--border-color);
-            border-radius: 8px; padding: 0.8rem 1rem; color: var(--text-main); margin-top: 0.5rem;
-        }
-        .form-control:focus { outline: none; border-color: var(--accent-primary); }
-
-        footer { text-align: center; padding: 2.5rem 0; color: var(--text-muted); border-top: 1px solid var(--border-color); }
+        .bio-block { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem; margin-bottom: 2.5rem; }
+        .bio-block p { color: var(--text-body); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem; }
         
-        @media (max-width: 768px) {
-            .hero-content, .about-grid, .contact-wrapper { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.3rem; }
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+        .skills-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem; }
+        .skills-card-header { display: flex; align-items: center; gap: 0.75rem; font-size: 1.15rem; font-weight: 700; color: var(--text-title); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); }
+        .skill-items { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
+        .skill-item { display: flex; align-items: flex-start; gap: 0.75rem; }
+        .skill-item i { color: var(--accent-light); font-size: 0.85rem; margin-top: 0.35rem; }
+        .skill-item-content strong { color: var(--text-title); font-size: 0.95rem; display: block; margin-bottom: 0.15rem; }
+        .skill-item-content p { color: var(--text-body); font-size: 0.88rem; line-height: 1.45; }
+
+        footer { padding: 2.5rem 0; border-top: 1px solid var(--border-subtle); text-align: center; color: var(--text-muted); font-size: 0.88rem; }
+
+        @media (max-width: 900px) {
+            .hero-grid, .skills-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.4rem; }
+            .photo-card img { height: 320px; }
+            .nav-menu { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Nav -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo"><i class="fa-solid fa-terminal"></i> Julen Rosado</a>
-            <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="brand"><span class="brand-dot"></span> Julen Rosado</a>
+            <ul class="nav-menu">
+                <li><a href="#about">Sobre mí</a></li>
             </ul>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container hero-content">
+    <section class="hero-section">
+        <div class="container hero-grid">
             <div>
-                <div class="hero-badge"><i class="fa-solid fa-circle-check"></i> Available for IT Systems Opportunities</div>
-                <h1 class="hero-title">Hi, I'm <span>Julen Rosado</span></h1>
-                <p class="hero-subtitle">Microcomputer Systems & Networks Technician (SMR) specialized in IT support, local networks, hardware diagnostics, and system maintenance.</p>
-                <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-                    <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
-                    <a href="https://28fc4c4e-cc55-438d-bdd1-10690873c35a.filesusr.com/ugd/24536d_9b4e7b8bf8e6455ab7239e11e149f97e.pdf" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> Download Full CV</a>
+                <div class="status-tag"><span class="status-dot"></span> Buscando retos en IT y Redes</div>
+                <h1 class="hero-title">Julen Rosado</h1>
+                <p class="hero-desc">Técnico en Sistemas Microinformáticos y Redes (SMR). Me gusta montar y configurar redes locales, trastear con servidores Windows y Linux, solucionar problemas de hardware y dar soporte técnico directo a usuarios.</p>
+                <div class="hero-actions">
+                    <a href="https://28fc4c4e-cc55-438d-bdd1-10690873c35a.filesusr.com/ugd/24536d_9b4e7b8bf8e6455ab7239e11e149f97e.pdf" target="_blank" class="btn-main">
+                        <i class="fa-solid fa-file-arrow-down"></i> Descargar Mi CV
+                    </a>
                 </div>
             </div>
-            <div style="text-align:center;">
-                <img src="https://static.wixstatic.com/media/76e838_cec2185c95464b8da122d8f3aefc2aeb~mv2.jpg/v1/crop/x_0,y_0,w_216,h_213/fill/w_302,h_298,al_c,lg_1,q_80,enc_avif,quality_auto/images%20(2).jpg" alt="Julen Rosado" class="hero-avatar">
+            <div class="photo-card">
+                <img src="foto curriculum.jpg" alt="Julen Rosado">
             </div>
         </div>
     </section>
 
-    <!-- About -->
     <section id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Who I Am</span>
-                <h2 class="section-title">About Me</h2>
+                <span class="section-label">// SOBRE MÍ</span>
+                <h2 class="section-heading">Quién soy y qué hago</h2>
             </div>
-            <div class="about-grid">
-                <div>
-                    <p style="margin-bottom:1rem; color:var(--text-muted);">Hi! My name is <strong>Julen Rosado</strong>, a certified <strong>Microcomputer Systems and Networks Technician (SMR)</strong> with a strong passion for technology and network infrastructure.</p>
-                    <p style="color:var(--text-muted);">I specialize in deploying LAN networks, troubleshooting computer hardware/software, configuring Active Directory and Linux servers, and delivering efficient technical support.</p>
-                </div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-                    <div class="highlight-card"><i class="fa-solid fa-network-wired" style="color:var(--accent-primary); font-size:1.5rem;"></i><h4 style="margin-top:0.5rem;">Networking</h4><p style="font-size:0.85rem; color:var(--text-muted);">Routers, switches, LAN/WLAN & DHCP/DNS.</p></div>
-                    <div class="highlight-card"><i class="fa-solid fa-desktop" style="color:var(--accent-primary); font-size:1.5rem;"></i><h4 style="margin-top:0.5rem;">Hardware</h4><p style="font-size:0.85rem; color:var(--text-muted);">Assembly, diagnostics & PC repair.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills -->
-    <section id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Capabilities</span>
-                <h2 class="section-title">Technical Skills</h2>
+            <div class="bio-block">
+                <p>¡Hola! Soy <strong>Julen Rosado</strong>, técnico en Sistemas Microinformáticos y Redes (SMR). Me atrae el mundo de la tecnología desde siempre y me gusta enfocarme en resolver problemas reales del día a día: desde dejar instalada y bien configurada una red local, hasta buscar por qué un equipo no arranca o un sistema va lento.</p>
+                <p>Tengo experiencia práctica montando PCs, gestionando usuarios y permisos en Windows Server (Active Directory), configurando entornos Linux y ayudando a los usuarios cuando necesitan asistencia técnica.</p>
             </div>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 style="color:var(--accent-primary); margin-bottom:1rem;"><i class="fa-solid fa-network-wired"></i> Networks</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
-                        <span class="tag">TCP/IP</span><span class="tag">Switching & Routing</span><span class="tag">VLANs</span><span class="tag">Packet Tracer</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 style="color:var(--accent-primary); margin-bottom:1rem;"><i class="fa-solid fa-server"></i> Operating Systems</h3>
-                    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
-                        <span class="tag">Windows Server</span><span class="tag">Active Directory & GPO</span><span class="tag">Linux Ubuntu/Debian</span><span class="tag">VirtualBox</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div>
-                    <h3>Get In Touch</h3>
-                    <p style="color:var(--text-muted); margin:1rem 0;">Open to IT Support, Systems, and Networking opportunities.</p>
-                    <p><strong>Email:</strong> jrosado257@gmail.com</p>
+            <div class="skills-grid">
+                <!-- Hard Skills -->
+                <div class="skills-card">
+                    <div class="skills-card-header"><i class="fa-solid fa-laptop-code"></i> Habilidades Técnicas (Hard Skills)</div>
+                    <ul class="skill-items">
+                        <li class="skill-item"><i class="fa-solid fa-angle-right"></i> <div class="skill-item-content"><strong>Redes y Configuración</strong><p>Configuración de TCP/IP, routers, switches, creación de VLANs, DHCP/DNS y cableado para que la red funcione sin cortes.</p></div></li>
+                        <li class="skill-item"><i class="fa-solid fa-angle-right"></i> <div class="skill-item-content"><strong>Sistemas Operativos y Servidores</strong><p>Manejo diario de Windows 10/11, administración básica de Windows Server (Active Directory, GPOs) y distribuciones Linux (Ubuntu/Debian).</p></div></li>
+                        <li class="skill-item"><i class="fa-solid fa-angle-right"></i> <div class="skill-item-content"><strong>Hardware y Reparación</strong><p>Montaje de PCs por piezas, diagnóstico de fallos físicos, sustitución de componentes y mantenimiento informático.</p></div></li>
+                        <li class="skill-item"><i class="fa-solid fa-angle-right"></i> <div class="skill-item-content"><strong>Virtualización y Copias</strong><p>Uso de VirtualBox y VMware para probar entornos, clonación de discos y estrategias simples de copias de seguridad.</p></div></li>
+                    </ul>
                 </div>
-                <form onsubmit="event.preventDefault(); alert('Message sent!');">
-                    <div><label>Name</label><input type="text" class="form-control" required></div>
-                    <div style="margin-top:1rem;"><label>Message</label><textarea class="form-control" style="height:100px;" required></textarea></div>
-                    <button type="submit" class="btn btn-primary" style="margin-top:1rem; border:none; cursor:pointer;">Send Message</button>
-                </form>
+
+                <!-- Soft Skills -->
+                <div class="skills-card">
+                    <div class="skills-card-header"><i class="fa-solid fa-user-check"></i> Habilidades Personales (Soft Skills)</div>
+                    <ul class="skill-items">
+                        <li class="skill-item"><i class="fa-solid fa-check"></i> <div class="skill-item-content"><strong>Resolución Lógica de Incidencias</strong><p>Curiosidad y paciencia para ir paso a paso hasta encontrar la causa de una avería o fallo de red.</p></div></li>
+                        <li class="skill-item"><i class="fa-solid fa-check"></i> <div class="skill-item-content"><strong>Trabajo en Equipo</strong><p>Me adapto bien a trabajar con otros compañeros, compartir tareas y aprender de quienes tienen más experiencia.</p></div></li>
+                        <li class="skill-item"><i class="fa-solid fa-check"></i> <div class="skill-item-content"><strong>Ganas de Aprender</strong><p>Interés constante por descubrir nuevas herramientas, comandos o formas de trabajar más eficientes.</p></div></li>
+                        <li class="skill-item"><i class="fa-solid fa-check"></i> <div class="skill-item-content"><strong>Trato Cercano y Claro</strong><p>Atención directa con los usuarios para entender sus problemas y explicarles las soluciones sin rodeos.</p></div></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Julen Rosado | Microcomputer Systems & Networks Technician</p>
+        <p>&copy; 2026 Julen Rosado | Técnico en Sistemas Microinformáticos y Redes.</p>
     </footer>
 
 </body>
